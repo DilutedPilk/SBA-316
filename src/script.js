@@ -1,4 +1,4 @@
-const navBar = document.querySelector('nav');
+const navBar = document.getElementById('topNav');
 navBar.style.display = "flex";
 navBar.style.alignItems = "center";
 navBar.style.justifyContent = "space-between";
@@ -20,6 +20,12 @@ login.textContent = "Log In";
 login.style.height = "30px";
 login.style.marginRight = "15px";
 navBar.appendChild(login);
+
+let dropdown = document.getElementById("dropdown");
+dropdown.style.width = "500px";
+dropdown.style.backgroundColor = "#6290C3";
+
+
 
 let topImage = document.createElement("div");
 topImage.id = "topImage";
@@ -53,4 +59,9 @@ for (let i = 1; i <= 4; i++){
     content.appendChild(lorem);
     content.appendChild(document.createElement('hr'));
 }
+
+navBar.addEventListener('click', (e)=>{
+    e.preventDefault();
+
+})
 
