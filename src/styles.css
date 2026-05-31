@@ -5,9 +5,33 @@ body {
     margin: 0;
 }
 
+#dropdown {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+input {
+    text-align: center;
+}
+
+h1 {
+    text-align: center;
+}
+
 #topNav {
+    position: fixed;
+    background-color: #1d2430;
+    width: 100%;
     height: 50px;
-    margin: 5px;
+    padding: 5px;
+    z-index: 50;
+}
+
+#dropdown {
+    background-color: #6290C3;
+    z-index: 10;
+    transition: top 0.5s ease-out;
 }
 
 #mask {
@@ -24,3 +48,8 @@ button {
 button:hover {
     background-color: #6290C3;
 }
+
+.active {
+    background-color: #6290C3;
+}
+

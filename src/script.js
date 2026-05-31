@@ -1,9 +1,10 @@
+// ----------------------------------------------->> Navigation bar
+
 const navBar = document.getElementById('topNav');
 navBar.style.display = "flex";
 navBar.style.alignItems = "center";
+navBar.style.top = "0"
 navBar.style.justifyContent = "space-between";
-
-const main = document.querySelector('main');
 
 const logo = document.createElement('img');
 logo.id = "logo";
@@ -22,13 +23,19 @@ login.style.marginRight = "15px";
 navBar.appendChild(login);
 
 let dropdown = document.getElementById("dropdown");
-dropdown.style.width = "500px";
-dropdown.style.backgroundColor = "#6290C3";
+dropdown.style.position = "fixed"
+dropdown.style.height = "50px";
+dropdown.style.width = "200px";
+dropdown.style.padding = "5px";
+dropdown.style.top = "0"
+dropdown.style.right = "0"
 
+// ----------------------------------------------->> Main content
 
+const main = document.querySelector('main');
 
 let topImage = document.createElement("div");
-topImage.id = "topImage";
+topImage.style.marginTop = "50px" 
 main.appendChild(topImage);
 
 let mask = document.createElement('img');
@@ -39,29 +46,48 @@ topImage.appendChild(mask);
 
 const content = document.createElement('div');
 content.style.margin = "10px";
+content.id = "content"
 main.appendChild(content);
 
-let title = document.createElement('h1');
-title.textContent = "Test";
+const title = document.createElement('h1');
+title.id = "title";
+title.textContent = "SBA 316";
 content.appendChild(title);
 content.appendChild(document.createElement('hr'));
 
-for (let i = 1; i <= 4; i++){
-    let loremTitle = document.createElement('h3');
-    loremTitle.textContent = "Placeholder Title";
-    loremTitle.style.textDecoration = "underline";
-    loremTitle.style.textAlign = "center";
+const changeDiv = document.createElement('div')
+content.appendChild(changeDiv)
 
-    let lorem = document.createElement('div');
-    lorem.textContent = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.";
+// ----------------------------------------------->> Login credentials
 
-    content.appendChild(loremTitle)
-    content.appendChild(lorem);
-    content.appendChild(document.createElement('hr'));
-}
+const arr = [
+    {username: 'Diluted'}
+]
 
-navBar.addEventListener('click', (e)=>{
+// ----------------------------------------------->> Event listeners
+
+navBar.addEventListener('click', (e) => {
     e.preventDefault();
-
+    if (e.target === login && login.classList != 'active') {
+        login.classList.add('active')
+        dropdown.style.top = "8%"
+    } else if (e.target !== login && login.classList == 'active') {
+        login.classList.remove('active');
+        dropdown.style.top = "0"
+    } else if (e.target === login && login.classList == 'active') {
+        login.classList.remove('active');
+        dropdown.style.top = "0"
+    }
 })
 
+main.addEventListener('click', (e) => {
+    e.preventDefault();
+    if (e.target !== login && login.classList == 'active') {
+        login.classList.remove('active');
+        dropdown.style.top = "0"
+    }
+})
+
+dropdown.addEventListener('submit', (e) =>{
+
+})
