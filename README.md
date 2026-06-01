@@ -1,11 +1,10 @@
-<h1 style="text-align:center;">SBA 316</h1>
-<hr>
+<h1 align="center">SBA 316</h1>
 This program is a barebones website mostly made with Javascript. It contains a login feature, login credentials are saved to the local storage. Once logged in, the user gains access to the rest of the page.
 The program uses DOM and BOM events to capture user input while also creating new elements and adding them to the website.
 I did some research on CSS masks to get the gradient effect on the image. I thought itd look nice so I added it in.
 <br>
 <br>
-<h3 style="text-align:center;">Issues:</h3>
+<h3 align="center"">Issues:</h3>
 <ul>
   <li>None with the code itself</li> <br>
   <li>Some visual issues with the login dropdown when changing the page scaling.</li><br>
