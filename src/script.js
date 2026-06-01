@@ -83,6 +83,7 @@ localStorage.setItem(`account`, JSON.stringify(user))
 // ----------------------------------------------->> Random div
 
 const frag = document.createDocumentFragment();
+frag.appendChild(gif);
 frag.appendChild(document.createElement('hr'));
 frag.appendChild(document.createTextNode('One question before logging out.'));
 frag.appendChild(document.createElement('p'));
@@ -141,16 +142,18 @@ dropdown.addEventListener('click', (e) => {
 
     if (e.target === submitButton) {
         if (username.value.toLowerCase() === value.username && pass.value === value.password) {
-            alert("Success!");
-            content.firstElementChild.textContent = "You are logged in.";
-            content.lastElementChild.textContent = "You can now see the rest of the page!";
-            content.appendChild(gif);
-            content.appendChild(frag);
-            for (let i = 0; i < genreList.length; i++) {
-                let genreButton = document.createElement('button');
-                genreButton.textContent = genreList[i];
-                genreButton.style.margin = '5px'
-                content.lastElementChild.appendChild(genreButton);
+            if (content.id != "shown") {
+                alert("Success!");
+                content.firstElementChild.textContent = "You are logged in.";
+                content.lastElementChild.textContent = "You can now see the rest of the page!";
+                content.appendChild(frag);
+                for (let i = 0; i < genreList.length; i++) {
+                    let genreButton = document.createElement('button');
+                    genreButton.textContent = genreList[i];
+                    genreButton.style.margin = '5px'
+                    content.lastElementChild.appendChild(genreButton);
+                }
+                content.id = "shown"
             }
         } else {
             alert("Username and/or password are incorrect. Please try again.");
