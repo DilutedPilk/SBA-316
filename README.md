@@ -4,6 +4,6 @@ This program is a barebones website mostly made with Javascript. It contains a l
 The program uses DOM and BOM events to capture user input while also creating new elements and adding them to the website.
 <br>
 <br>
-Issues:
+<h3>Issues:</h3>
 
 I havent found any except some visual issues with the login dropdown when changing the page scaling
