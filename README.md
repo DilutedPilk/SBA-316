@@ -7,6 +7,6 @@ I did some research on CSS masks to get the gradient effect on the image. I thou
 <br>
 <h3 style="text-align:center;">Issues:</h3>
 
-None with the code itself
-Some visual issues with the login dropdown when changing the page scaling.
+None with the code itself <br>
+Some visual issues with the login dropdown when changing the page scaling.<br>
 I could have been a bit more creative when it comes to the interface and most likely would have made it look less barebones if I had a bit more time to ponder on it.
