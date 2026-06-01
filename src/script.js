@@ -42,7 +42,7 @@ dropdown.lastElementChild.style.right = "0"
 const main = document.querySelector('main');
 
 let topImage = document.createElement("div");
-topImage.style.marginTop = "50px" 
+topImage.style.marginTop = "50px"
 main.appendChild(topImage);
 
 let mask = document.createElement('img');
@@ -84,10 +84,25 @@ localStorage.setItem(`account`, JSON.stringify(user))
 
 const frag = document.createDocumentFragment();
 frag.appendChild(document.createElement('hr'));
-frag.appendChild(document.createTextNode('Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.'));
-frag.appendChild(document.createElement('hr'));
-frag.appendChild(document.createElement('div'));
-frag.lastElementChild.textContent = "Getting the requirements in";
+frag.appendChild(document.createTextNode('One question before logging out.'));
+frag.appendChild(document.createElement('p'));
+frag.lastElementChild.textContent = "What genre of games do you like?";
+frag.appendChild(document.createElement('br'))
+frag.appendChild(document.createElement('div'))
+frag.lastElementChild.id = "genreButtons"
+
+
+const genreList = [
+    "survival",
+    "sci-fi",
+    "horror",
+    "puzzle",
+    "creature collector",
+    "simulator",
+    "RPG",
+    "metroidvania",
+    "FPS"
+]
 
 // ----------------------------------------------->> Event listeners
 
@@ -123,18 +138,35 @@ dropdown.addEventListener('click', (e) => {
     const pass = username.nextElementSibling;
     const value = JSON.parse(localStorage.getItem("account"));
     const submitButton = dropdown.lastElementChild;
-    
-    if (e.target === submitButton) { 
-        if (username.value.toLowerCase() === value.username && pass.value === value.password){
+
+    if (e.target === submitButton) {
+        if (username.value.toLowerCase() === value.username && pass.value === value.password) {
             alert("Success!");
             content.firstElementChild.textContent = "You are logged in.";
             content.lastElementChild.textContent = "You can now see the rest of the page!";
             content.appendChild(gif);
             content.appendChild(frag);
-
+            for (let i = 0; i < genreList.length; i++) {
+                let genreButton = document.createElement('button');
+                genreButton.textContent = genreList[i];
+                genreButton.style.margin = '5px'
+                content.lastElementChild.appendChild(genreButton);
+            }
         } else {
             alert("Username and/or password are incorrect. Please try again.");
         }
     }
 
 });
+
+content.addEventListener('click', (e) => {
+
+    const buttonDiv = content.lastElementChild
+    const genreButtons = buttonDiv.querySelectorAll('button');
+
+    for (let i = 0; i < genreButtons.length; i++) {
+        if (e.target === genreButtons[i]) {
+            alert(`You chose ${genreButtons[i].textContent}!`)
+        }
+    }
+})

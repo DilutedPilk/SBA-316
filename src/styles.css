@@ -3,6 +3,7 @@ body {
     background-color: #1d2430;
     color: #fffcf2;
     margin: 0;
+    text-align: center;
 }
 
 #dropdown {
@@ -57,3 +58,9 @@ button:hover {
 .active {
     background-color: #6290C3;
 }
+
+#genreButtons {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+} 
